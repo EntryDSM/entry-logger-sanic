@@ -16,11 +16,14 @@ pip install entry-logger-sanic
 
 ## Usage
 ```python
+import os
 from sanic import Sanic
 from entry_logger_sanic import set_logger
 
+log_path = os.path.dirname(__file__).replace("/service", "").replace("/currentdir", "")  # example
+
 app = Sanic("SERVICE NAME")  # please specify service name!
-set_logger(app)
+set_logger(app, log_path)
 
 ...
 ```

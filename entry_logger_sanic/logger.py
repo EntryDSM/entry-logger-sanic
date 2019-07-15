@@ -47,7 +47,7 @@ def _iso_time_format(dt):
     )
 
 
-def set_logger(app: Sanic):
+def set_logger(app: Sanic, log_path: str):
     if not isinstance(app, Sanic):
         raise RuntimeError("Invalid app was given")
 
@@ -55,7 +55,6 @@ def set_logger(app: Sanic):
 
     SERVICE_NAME = app.name
 
-    log_path = os.path.dirname(__file__).replace("/hermes", "").replace("/misc", "")
     sanic_logger.info(
         f"Service log will saved at {os.path.abspath(f'{log_path}/{SERVICE_NAME}.log')}"
     )
