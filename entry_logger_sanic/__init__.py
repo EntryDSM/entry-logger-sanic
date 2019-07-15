@@ -1,3 +1,3 @@
 from entry_logger_sanic.logger import set_logger
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"

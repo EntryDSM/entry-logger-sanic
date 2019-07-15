@@ -20,7 +20,7 @@ with open(os.path.join("entry_logger_sanic", "__init__.py"), "r") as f:
         raise RuntimeError("Unable to determine version.")
 
 
-setup(name='entry-sanic-logger',
+setup(name='entry-logger-sanic',
       version=version,
       url='https://github.com/EntryDSM/entry-logger-sanic',
       license='MIT',
