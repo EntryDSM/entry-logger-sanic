@@ -28,6 +28,8 @@ set_logger(app, log_path)
 ...
 ```
 
+The log file will be saved under `{designated path}/log` as `{given service name}.log`
+
 ## Versioning
 ```
 {Major}.{Minor}.{Patch}

@@ -48,6 +48,11 @@ def _iso_time_format(dt):
 
 
 def set_logger(app: Sanic, log_path: str):
+    log_path += "/log"
+
+    if not os.path.exists(log_path):
+        os.makedirs(log_path)
+
     if not isinstance(app, Sanic):
         raise RuntimeError("Invalid app was given")
 
