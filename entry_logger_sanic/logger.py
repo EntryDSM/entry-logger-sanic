@@ -90,7 +90,7 @@ def set_logger(app: Sanic, log_path: str):
             "response_content_type": res.content_type,
             "response_body": res.body.decode(),
             "response_body_length": len(res.body),
-            "duration_time": str(req["request_time"] - datetime.utcnow()),
+            "duration_time": str(datetime.utcnow() - req["request_time"]),
         }
         logger.info(json.dumps(log))
 
