@@ -109,6 +109,11 @@ def set_logger(app: Sanic, log_path: str):
 
     @app.middleware("response")
     def response_log(req: request.Request, res: response.HTTPResponse):
+        try:
+            request_body = req.body.decode()
+        except:
+            request_body = req.body
+
         log = {
             "level": "INFO" if res.status // 200 else "WARN",
             "issued_at": _iso_time_format(req["request_time"]),
@@ -118,7 +123,7 @@ def set_logger(app: Sanic, log_path: str):
             "path": req.path,
             "path_template": req.uri_template,
             "request_header": dict(req.headers),
-            "request_body": req.body.decode(),
+            "request_body": request_body,
             "request_query_string": req.args,
             "request_ip": req.ip,
             "request_received_at": _iso_time_format(req["request_time"]),
