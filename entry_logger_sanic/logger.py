@@ -110,7 +110,7 @@ def set_logger(app: Sanic, log_path: str):
     @app.middleware("response")
     def response_log(req: request.Request, res: response.HTTPResponse):
         log = {
-            "level": "INFO" if res.status == 200 else "WARN",
+            "level": "INFO" if res.status // 200 else "WARN",
             "issued_at": _iso_time_format(req["request_time"]),
             "tracking_id": dict(req.headers).get("X-Tracking-ID"),
             "url": req.url,
